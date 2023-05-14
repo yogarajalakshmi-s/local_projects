@@ -1,26 +1,46 @@
-# Day - 16 - OOP
-
-# Accessing and modifying object attributes and accessing object methods
 # https://docs.python.org/3/library/turtle.html
 
-from turtle import Turtle, Screen
-turtle_obj = Turtle()
-turtle_obj.shape('turtle')
-turtle_obj.color('red', 'green')
-turtle_obj.forward(100)
+import turtle as t
+import colorgram
+import random
 
-my_screen = Screen()
-print(my_screen.canvheight)
+snoopy = t.Turtle()
+
+def get_colors():
+    rgb_colors = []
+    colors = colorgram.extract('hirst_spot_painting_1.jpg', 30)
+    for color in colors:
+        rgb_color = color.rgb
+        rgb_colors.append((rgb_color.r, rgb_color.g, rgb_color.b))
+    return rgb_colors
+
+
+# Setting initial position
+snoopy.hideturtle()
+snoopy.setheading(225)
+snoopy.penup()
+snoopy.forward(300)
+snoopy.speed('fastest')
+t.colormode(255)
+colors = get_colors()
+
+snoopy.setheading(0)
+
+def spot_paint():
+    for _ in range(10):
+        snoopy.dot(20, random.choice(colors))
+        snoopy.penup()
+        if _ != 9:
+            snoopy.forward(50)
+
+for _ in range(10):
+    spot_paint()
+    snoopy.setheading(90)
+    snoopy.penup()
+    snoopy.forward(50)
+    snoopy.setheading(180)
+    snoopy.forward(450)
+    snoopy.setheading(0)
+
+my_screen = t.Screen()
 my_screen.exitonclick()
-
-
-# Creting Table
-# https://code.google.com/archive/p/prettytable/wikis/Tutorial.wiki
-
-from prettytable import PrettyTable
-
-table = PrettyTable()
-table.add_column('Pokemon name', ['Pikachu', 'Squirtle', 'Charmandar'])
-table.add_column('Type', ['Electric', 'Water', 'Fire'])
-table.align = 'l'
-print(table)
