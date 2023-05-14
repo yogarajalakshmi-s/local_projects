@@ -1,26 +1,36 @@
-# Day - 16 - OOP
+from data import question_data
+from question_model import Question
+from quiz import QuizBrain
 
-# Accessing and modifying object attributes and accessing object methods
-# https://docs.python.org/3/library/turtle.html
-
-from turtle import Turtle, Screen
-turtle_obj = Turtle()
-turtle_obj.shape('turtle')
-turtle_obj.color('red', 'green')
-turtle_obj.forward(100)
-
-my_screen = Screen()
-print(my_screen.canvheight)
-my_screen.exitonclick()
+question_bank = []
+for data in question_data:
+    question_bank.append(Question(data['text'], data['answer']))
 
 
-# Creting Table
-# https://code.google.com/archive/p/prettytable/wikis/Tutorial.wiki
+quiz_obj = QuizBrain(question_bank)
+while quiz_obj.still_has_questions():
+    QuizBrain.next_question(quiz_obj)
 
-from prettytable import PrettyTable
 
-table = PrettyTable()
-table.add_column('Pokemon name', ['Pikachu', 'Squirtle', 'Charmandar'])
-table.add_column('Type', ['Electric', 'Water', 'Fire'])
-table.align = 'l'
-print(table)
+print(f"Quiz is complete!\nYour final score is: {quiz_obj.score}/{len(question_bank)}")
+
+
+
+# CREATING CLASS AND CLASS ATTRIBUTES AND METHODS
+# class User:
+#     def __init__(self, id, name):
+#         self.id = id
+#         self.name = name
+#         self.followers = 0 # Default attribute
+#         self.following = 0
+#
+#     def follow(self, user):
+#         user.followers += 1
+#         self.following += 1
+#
+# user_1 = User('1', 'Yoga')
+# user_2 = User('2', 'Ishu')
+# # print(user_1.id, user_1.name)
+# user_1.follow(user_2)
+# print(f"USER - 1: {user_1.followers} {user_1.following}")
+# print(f"USER - 2: {user_2.followers} {user_2.following}")
