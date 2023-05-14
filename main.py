@@ -1,26 +1,22 @@
-# Day - 16 - OOP
+from menu import Menu
+from coffee_maker import CoffeeMaker
+from money_machine import MoneyMachine
 
-# Accessing and modifying object attributes and accessing object methods
-# https://docs.python.org/3/library/turtle.html
+turn_off = False
 
-from turtle import Turtle, Screen
-turtle_obj = Turtle()
-turtle_obj.shape('turtle')
-turtle_obj.color('red', 'green')
-turtle_obj.forward(100)
+coffee_maker_obj = CoffeeMaker()
+money = MoneyMachine()
+menu = Menu()
 
-my_screen = Screen()
-print(my_screen.canvheight)
-my_screen.exitonclick()
-
-
-# Creting Table
-# https://code.google.com/archive/p/prettytable/wikis/Tutorial.wiki
-
-from prettytable import PrettyTable
-
-table = PrettyTable()
-table.add_column('Pokemon name', ['Pikachu', 'Squirtle', 'Charmandar'])
-table.add_column('Type', ['Electric', 'Water', 'Fire'])
-table.align = 'l'
-print(table)
+while not turn_off:
+    print("Welcome 😁😁 !!!")
+    prompt = input(f"What would you like? ({menu.get_items()}): ").lower()
+    if prompt == 'report':
+        coffee_maker_obj.report()
+        money.report()
+    elif prompt == 'off':
+        turn_off = True
+    else:
+        drink = menu.find_drink(prompt)
+        if coffee_maker_obj.is_resource_sufficient(drink) and money.make_payment(drink.cost):
+            coffee_maker_obj.make_coffee(drink)
