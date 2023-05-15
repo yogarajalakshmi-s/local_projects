@@ -1,57 +1,40 @@
-# Day - 16 - OOP
-
-# Accessing and modifying object attributes and accessing object methods
 # https://docs.python.org/3/library/turtle.html
 
 from turtle import Turtle, Screen
-turtle_obj = Turtle()
-turtle_obj.shape('turtle')
-turtle_obj.color('red', 'green')
-turtle_obj.forward(100)
+import random
 
-my_screen = Screen()
-print(my_screen.canvheight)
-my_screen.exitonclick()
-
-
-# Creting Table
-# https://code.google.com/archive/p/prettytable/wikis/Tutorial.wiki
-
-from prettytable import PrettyTable
-
-table = PrettyTable()
-table.add_column('Pokemon name', ['Pikachu', 'Squirtle', 'Charmandar'])
-table.add_column('Type', ['Electric', 'Water', 'Fire'])
-table.align = 'l'
-print(table)
-
-
-
-
-# DAY - 19: Event Listeners
-from turtle import Turtle, Screen
-
-snoopy = Turtle()
+race = False
 screen = Screen()
+screen.setup(width=500, height=400)
+guess = screen.textinput(title='Turtle race game', prompt='Which turtle would win the race? (Enter the color): ')
 
-def move_forward():
-    snoopy.forward(10)
+colors = ['violet', 'indigo', 'blue', 'green', 'yellow', 'orange', 'red']
+turtles = []
+
+if guess:
+    race = True
+
+    for i in range(7):
+        new_turtle = Turtle(shape='turtle')
+        new_turtle.color(colors[i])
+        new_turtle.penup()
+        new_turtle.goto(x=-230, y=(-100 + (i * 30)))
+        turtles.append(new_turtle)
 
 
-screen.listen()
-screen.onkey(key='space', fun=move_forward)
+while race:
+    for turtle in turtles:
+        if turtle.xcor() > 230:
+            race = False
+            winning_turtle = turtle.pencolor()
+            if guess == winning_turtle:
+                print(f"You've won! The winning turtle is {winning_turtle}")
+            else:
+                print(f"You've lost. The winning turtle is {winning_turtle}")
+
+        distance = random.randint(0, 10)  # Inclusive of both 0 and 10
+        turtle.forward(distance)
+
+
 screen.exitonclick()
 
-
-# Functions as Inputs - IMPORTANT
-def add(n1, n2):
-    return n1 + n2
-
-def sub(n1, n2):
-    return n1 - n2
-
-def calc(n1, n2, func): # -> Higher Order Function
-    return func(n1, n2)
-
-
-print(calc(2, 3, add))
