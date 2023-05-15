@@ -24,3 +24,34 @@ table.add_column('Pokemon name', ['Pikachu', 'Squirtle', 'Charmandar'])
 table.add_column('Type', ['Electric', 'Water', 'Fire'])
 table.align = 'l'
 print(table)
+
+
+
+
+# DAY - 19: Event Listeners
+from turtle import Turtle, Screen
+
+snoopy = Turtle()
+screen = Screen()
+
+def move_forward():
+    snoopy.forward(10)
+
+
+screen.listen()
+screen.onkey(key='space', fun=move_forward)
+screen.exitonclick()
+
+
+# Functions as Inputs - IMPORTANT
+def add(n1, n2):
+    return n1 + n2
+
+def sub(n1, n2):
+    return n1 - n2
+
+def calc(n1, n2, func): # -> Higher Order Function
+    return func(n1, n2)
+
+
+print(calc(2, 3, add))
