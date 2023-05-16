@@ -1,57 +1,28 @@
-# Day - 16 - OOP
-
-# Accessing and modifying object attributes and accessing object methods
 # https://docs.python.org/3/library/turtle.html
 
 from turtle import Turtle, Screen
-turtle_obj = Turtle()
-turtle_obj.shape('turtle')
-turtle_obj.color('red', 'green')
-turtle_obj.forward(100)
+from snake import Snake
+import time
 
-my_screen = Screen()
-print(my_screen.canvheight)
-my_screen.exitonclick()
-
-
-# Creting Table
-# https://code.google.com/archive/p/prettytable/wikis/Tutorial.wiki
-
-from prettytable import PrettyTable
-
-table = PrettyTable()
-table.add_column('Pokemon name', ['Pikachu', 'Squirtle', 'Charmandar'])
-table.add_column('Type', ['Electric', 'Water', 'Fire'])
-table.align = 'l'
-print(table)
-
-
-
-
-# DAY - 19: Event Listeners
-from turtle import Turtle, Screen
-
-snoopy = Turtle()
 screen = Screen()
+screen.setup(width=600, height=600)
+screen.bgcolor('black')
+screen.title('Snake Game')
+screen.tracer(0)  # Tracer is turned off - Implies there will be no animation shown on the screen
 
-def move_forward():
-    snoopy.forward(10)
-
+snake = Snake()
 
 screen.listen()
-screen.onkey(key='space', fun=move_forward)
+screen.onkey(snake.up, 'Up')
+screen.onkey(snake.down, 'Down')
+screen.onkey(snake.right, 'Right')
+screen.onkey(snake.left, 'Left')
+
+game_over = False
+while not game_over:
+    screen.update()  # used when tracer is off - turns on the animation after the move is complete and
+    # refreshes the screen with the updated movement
+    time.sleep(0.1)
+    snake.move()
+
 screen.exitonclick()
-
-
-# Functions as Inputs - IMPORTANT
-def add(n1, n2):
-    return n1 + n2
-
-def sub(n1, n2):
-    return n1 - n2
-
-def calc(n1, n2, func): # -> Higher Order Function
-    return func(n1, n2)
-
-
-print(calc(2, 3, add))
