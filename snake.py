@@ -2,6 +2,7 @@ from turtle import Turtle
 DISTANCE = 20
 DIRECTION = {'up': 90,  'down': 270, 'left': 180, 'right': 0}
 
+
 class Snake:
 
     def __init__(self):  # This snake object contains the turtle objects (the complete snake)
@@ -11,12 +12,20 @@ class Snake:
         # an attribute
 
     def create_snake(self):
-        for i in range(3):
-            segment = Turtle(shape='square')
-            segment.penup()
-            segment.color('white')
-            segment.goto(x=(-20 * i), y=0)
-            self.segments.append(segment)
+        for i in range(3):  # Creating a 3-segment length snake
+            self.add_segment(-20 * i, 0)
+
+    def add_segment(self, x_cor, y_cor):
+        segment = Turtle(shape='square')
+        segment.penup()
+        segment.color('white')
+        segment.goto(x=x_cor, y=y_cor)
+        self.segments.append(segment)
+
+    # Increasing tail length
+    def extend(self):
+        last_segment = self.segments[-1]
+        self.add_segment(last_segment.xcor(), last_segment.ycor())  # Creating a new segment with the last segment's position
 
     def move(self):
         for i in range(len(self.segments) - 1, 0, -1):  # Moving 3rd segment's position to 2nd's and 2nd's to 1st
@@ -41,4 +50,3 @@ class Snake:
     def right(self):
         if self.head.heading() != DIRECTION['left']:
             self.head.setheading(DIRECTION['right'])
-

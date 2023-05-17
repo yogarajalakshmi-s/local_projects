@@ -1,7 +1,9 @@
 # https://docs.python.org/3/library/turtle.html
 
-from turtle import Turtle, Screen
+from turtle import Screen
 from snake import Snake
+from food import Food
+from scoreboard import Score
 import time
 
 screen = Screen()
@@ -11,6 +13,8 @@ screen.title('Snake Game')
 screen.tracer(0)  # Tracer is turned off - Implies there will be no animation shown on the screen
 
 snake = Snake()
+food = Food()
+score = Score()
 
 screen.listen()
 screen.onkey(snake.up, 'Up')
@@ -24,5 +28,24 @@ while not game_over:
     # refreshes the screen with the updated movement
     time.sleep(0.1)
     snake.move()
+
+    # Detecting collision with the food
+    if snake.head.distance(food) < 20:
+        food.reset_location()
+        score.clear()
+        score.increase_score()
+        snake.extend()
+
+    # Detecting collision with the wall
+    if snake.head.xcor() > 280 or snake.head.xcor() < -290 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
+        game_over = True
+        score.game_over()
+
+    # Detecting collision with the tail
+    for segment in snake.segments[1:]:  # Since we are comparing the head segment with other segments,
+        # we don't have to loop through the head index, so slicing it off
+        if snake.head.distance(segment) < 10:
+            game_over = True
+            score.game_over()
 
 screen.exitonclick()
