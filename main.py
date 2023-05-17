@@ -14,7 +14,7 @@ print(my_screen.canvheight)
 my_screen.exitonclick()
 
 
-# Creting Table
+# Creating Table
 # https://code.google.com/archive/p/prettytable/wikis/Tutorial.wiki
 
 from prettytable import PrettyTable
@@ -53,5 +53,25 @@ def sub(n1, n2):
 def calc(n1, n2, func): # -> Higher Order Function
     return func(n1, n2)
 
-
 print(calc(2, 3, add))
+
+
+# DAY - 21 : INHERITANCE
+class Animal:
+    def __init__(self):
+        self.eyes = 2
+
+    def breathe(self):
+        print("Inhale. Exhale.")
+
+class Fish(Animal):
+    def __init__(self):
+        super().__init__()
+
+    def breathe(self):
+        super().breathe()
+        print("Breathe underwater.")
+
+
+nemo = Fish()
+nemo.breathe()
