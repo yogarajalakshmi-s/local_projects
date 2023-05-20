@@ -27,7 +27,7 @@ while not game_over:
     screen.update()  # used when tracer is off - turns on the animation after the move is complete and
     # refreshes the screen with the updated movement
     time.sleep(0.1)
-    snake.move()
+    snake.move()  # TODO: Check why it shows error when we stop the game
 
     # Detecting collision with the food
     if snake.head.distance(food) < 20:
