@@ -75,3 +75,34 @@ class Fish(Animal):
 
 nemo = Fish()
 nemo.breathe()
+
+
+# DAY -24 - Open, Read, Write and Close Files
+
+# 1. Open, read and close
+file = open("my_file.txt")
+contents = file.read()
+print(contents)
+file.close()
+
+# 2.Open and read without need of closing the file. This syntax automatically closes the file
+with open("my_file.txt") as file:
+    contents = file.read()
+    print(contents)
+
+# 3. Write in a file. (Replaces all contents)
+with open("my_file.txt", mode='w') as file:
+    file.write("New Text.")
+
+# 4. Write in a file without clearing the previous content
+with open("my_file.txt", mode='a') as file:
+    file.write("\nHello World! My name is Yoga!")
+
+# 5. If we mention a non-existing file in write mode, it creates that file
+with open("new_file.txt", mode='w') as file:
+    file.write("My new file!")
+
+
+
+
+
