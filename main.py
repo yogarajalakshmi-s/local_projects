@@ -26,7 +26,7 @@ table.align = 'l'
 print(table)
 
 
-
+# ---------------------------------------------------------------------------------------------------------------------
 
 # DAY - 19: Event Listeners
 from turtle import Turtle, Screen
@@ -55,6 +55,7 @@ def calc(n1, n2, func): # -> Higher Order Function
 
 print(calc(2, 3, add))
 
+# ---------------------------------------------------------------------------------------------------------------------
 
 # DAY - 21 : INHERITANCE
 class Animal:
@@ -76,8 +77,8 @@ class Fish(Animal):
 nemo = Fish()
 nemo.breathe()
 
-
-# DAY -24 - Open, Read, Write and Close Files
+# ---------------------------------------------------------------------------------------------------------------------
+# DAY -24 - Open, Read, Write and Close Files and Absolute and Relative paths
 
 # 1. Open, read and close
 file = open("my_file.txt")
@@ -103,6 +104,18 @@ with open("new_file.txt", mode='w') as file:
     file.write("My new file!")
 
 
+# 6. Read file from a different directory - say Desktop - Absolute path
+# Replace with the correct username
+with open("/Users/{username}/Desktop/file_1.txt") as file:
+    contents = file.read()
+    print(contents)
 
+# 7. Read file from a different directory - Relative path
+# main.py -> path -> /Users/{username}/PycharmProjects/LocalProjects
+# In the code, we are going backwards by two folders (../../) i.e., we are going to PycharmProjects from LocalProjects
+# And now we are in the Folder {username}. From here, we can trace the path to Desktop and to the required file.
+with open("../../Desktop/file_1.txt") as file:
+    contents = file.read()
+    print(contents)
 
-
+# ---------------------------------------------------------------------------------------------------------------------
