@@ -176,4 +176,14 @@ monday = data[data.day == 'Monday']
 print(monday.temp)
 print((monday.temp * 9/5) + 32)  # To Fahrenheit
 
+# Creating a DataFrame from scratch
+data_dict_1 = {
+    "students": ['A', 'B', 'C'],
+    "scores": [98, 99, 100]
+}
+scores = pandas.DataFrame(data_dict_1)
+print(scores)
+scores.to_csv('student_data.csv')
+
+# ----------------------------------------------------------------------------------------------------------------------
 
