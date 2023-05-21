@@ -119,3 +119,27 @@ with open("../../Desktop/file_1.txt") as file:
     print(contents)
 
 # ---------------------------------------------------------------------------------------------------------------------
+
+
+# DAY - 25: READING CSV DATA & PANDAS LIBRARY
+# https://pandas.pydata.org/docs/getting_started/index.html#getting-started
+
+with open("weather_data.csv") as file:
+    data = file.readlines()
+    print(data)
+
+import csv
+with open("weather_data.csv") as file:
+    data = csv.reader(file)
+    print(data)
+    temperature = []
+    for row in data:
+        if row[1] != 'temp':
+            temperature.append(int(row[1]))
+    print(temperature)
+
+# IMPORTANT
+import pandas
+data = pandas.read_csv("weather_data.csv")
+print(data)
+print(f"\n{data['temp']}")
