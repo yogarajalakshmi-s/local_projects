@@ -187,7 +187,7 @@ scores.to_csv('student_data.csv')
 
 # ----------------------------------------------------------------------------------------------------------------------
 
-# DAY -26 : LIST AND DICTIONARY COMPREHENSION
+# DAY -26 : LIST AND DICTIONARY COMPREHENSION, PANDA DATAFRAME ITERATION
 
 numbers = [1, 2, 3]
 new_numbers = [n + 1 for n in numbers]  # -> list comprehension
@@ -207,4 +207,38 @@ print(shorter_names)
 upcase_names = [name.upper() for name in names if len(name) > 5]
 print(upcase_names)
 
+
+import random
+names = ['Alex', 'Beth', 'Caroline', 'Dave', 'Eleanor', 'Freddie']
+scores = {student: random.randint(1, 100) for student in names}  # -> Dictionary Comprehension
+print(scores)
+
+# Conditional dictionary comprehension
+passed_students = {student: score for (student, score) in scores.items() if score > 60}
+print(passed_students)
+
+
+import pandas
+
+# Iterating over pandas DataFrame - dictionary comprehension
+student_dict = {
+    'student': ['Angela', 'Jack', 'Lily'],
+    'score': [78, 88, 98]
+}
+
+# Looping through dictionaries
+for (key, value) in student_dict.items():
+    print(value)
+
+# Loop through dataframe
+student_data_frame = pandas.DataFrame(student_dict)
+print(student_data_frame)
+
+for (key, value) in student_data_frame.items():
+    print(value)
+
+# Pandas has an in-built loop which iterates through the rows - iterrows
+for (index, row) in student_data_frame.iterrows():
+    # print(row)
+    print(row.student)
 
