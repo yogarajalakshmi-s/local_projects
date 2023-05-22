@@ -37,10 +37,6 @@ while len(correct_guesses) < 50:
         # of returning the object
 
 
-states_list = pandas.DataFrame(states_to_learn)
-states_list.to_csv('states_to_learn.csv')
-
-
 
 
 
