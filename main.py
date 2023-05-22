@@ -16,6 +16,12 @@ while len(correct_guesses) < 50:
     state_guess = screen.textinput(title=f"{len(correct_guesses)}/50 States Correct", prompt='Name a state').title()
 
     if state_guess == 'Exit':
+        states_to_learn = []
+        for state in us_states:
+            if state not in correct_guesses:
+                states_to_learn.append(state)
+        states_list = pandas.DataFrame(states_to_learn)
+        states_list.to_csv('states_to_learn.csv')
         break
 
     if state_guess not in correct_guesses and state_guess in us_states:
@@ -30,11 +36,6 @@ while len(correct_guesses) < 50:
         # new_state.write(guessed_state_data.state.item()) #-> picks the first element from the series instead
         # of returning the object
 
-# states_to_learn.csv
-states_to_learn = []
-for state in us_states:
-    if state not in correct_guesses:
-        states_to_learn.append(state)
 
 states_list = pandas.DataFrame(states_to_learn)
 states_list.to_csv('states_to_learn.csv')
