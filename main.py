@@ -187,3 +187,24 @@ scores.to_csv('student_data.csv')
 
 # ----------------------------------------------------------------------------------------------------------------------
 
+# DAY -26 : LIST AND DICTIONARY COMPREHENSION
+
+numbers = [1, 2, 3]
+new_numbers = [n + 1 for n in numbers]  # -> list comprehension
+print(new_numbers)
+
+name = "Angela"
+new_list = [letter for letter in name]
+print(new_list)
+
+doubled_list = [n*2 for n in range(1, 5)]
+print(doubled_list)
+
+names = ['Alex', 'Beth', 'Caroline', 'Dave', 'Eleanor', 'Freddie']
+shorter_names = [name for name in names if len(name) < 5]  # -> Conditional list comprehension
+print(shorter_names)
+
+upcase_names = [name.upper() for name in names if len(name) > 5]
+print(upcase_names)
+
+
