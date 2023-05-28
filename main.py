@@ -5,7 +5,7 @@ import datetime as dt
 now = dt.datetime.now()
 day = now.strftime('%A')
 
-if day == 6:
+if now.weekday() == 6:
     with open('quotes.txt') as file:
         data = file.readlines()
     quote = random.choice(data)
