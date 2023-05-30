@@ -169,3 +169,10 @@ print(scores)
 # Conditional dictionary comprehension
 passed_students = {student: score for (student, score) in scores.items() if score > 60}
 print(passed_students)
+
+# DAY - 34: Unescaping HTML entities
+import html
+
+text = "Question&#39;s answer"
+print(html.unescape(text))
+
