@@ -170,9 +170,26 @@ print(scores)
 passed_students = {student: score for (student, score) in scores.items() if score > 60}
 print(passed_students)
 
+
+# --------------------------------------------------------------------------------------------------------------------
 # DAY - 34: Unescaping HTML entities
 import html
 
 text = "Question&#39;s answer"
 print(html.unescape(text))
+
+
+# IMPORTANT - TYPE HINTS
+age: int
+age = "twelve"  # Hover and see the warning
+
+
+# Using type hints in functions to specify input and output data types
+def name(name: str) -> str:
+    return "Hello " + name + "!"
+
+print(name("Ishu"))
+
+
+
 
