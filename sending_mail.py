@@ -1,3 +1,5 @@
+# DAY - 32: Sending email using smtplib
+
 import smtplib
 
 my_email = "python.test.googol@gmail.com"
