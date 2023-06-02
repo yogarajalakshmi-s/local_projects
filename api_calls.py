@@ -44,3 +44,6 @@ print(response.json())
 # response = requests.get(url="https://api.openweathermap.org/data/3.0/onecall", params=parameters)
 # print(response.json())
 
+# post - requests.post(url=<url>, json=<parameters>, headers=<headers>)
+# put  - requests.put(url=<url>, json=<parameters>, headers=<headers>)
+# delete - requests.delete(url=<url>)

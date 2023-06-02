@@ -17,3 +17,6 @@ today = datetime.now().date()
 yesterday = str(today - timedelta(days=1))  # Getting yesterday as a datetime object
 day_before_yesterday = str(today - timedelta(days=2))
 print(today, yesterday)
+
+# strftime
+print(today.strftime('%Y%m%d'))
