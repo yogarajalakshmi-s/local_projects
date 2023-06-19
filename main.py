@@ -190,6 +190,41 @@ def name(name: str) -> str:
 
 print(name("Ishu"))
 
+# --------------------------------------------------------------------------------------------------------------------
+
+# DAY - 54: Functions - First class objects, nested functions
+
+# 1. Function names can be passed as arguments - First-Class Objects
+def add(n1, n2):
+    return n1+n2
+
+def subtract(n1, n2):
+    return n1-n2
+
+def calculate(func, n1, n2):
+    return func(n1, n2)
 
 
+print(calculate(add, 2, 3))
 
+# 2. Nested functions
+def outer_func():
+    print("Outer func")
+    def nested_func():
+        print("Inner func")
+
+    nested_func()
+
+outer_func()
+
+# 3. Returning functions from another function
+def outer_func():
+    print("Outer func")
+    def nested_func():
+        print("Inner func")
+
+    return nested_func
+
+
+inner_func = outer_func()
+inner_func()
