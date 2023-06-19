@@ -228,3 +228,32 @@ def outer_func():
 
 inner_func = outer_func()
 inner_func()
+
+# 4. Decorator functions - Function that adds a functionality to an existing function
+import time
+
+def delay_decorator(function):
+    def wrapper_function():
+        time.sleep(5)
+        function()  # Takes the function name where the decorator is called
+        # function()
+    return wrapper_function
+
+@delay_decorator  # Decorates the function below with a decorator function
+def say_hello():
+    print("Hello")
+
+@delay_decorator
+def say_bye():
+    print("Bye")
+
+def say_greeting():
+    print("Good Day!")
+
+
+say_hello()  # Hello and Bye have a delay of 5 seconds before printing
+say_bye()
+say_greeting()  # Has no delay since there is no decorator
+# @delay_decorator implies
+decorator_func = delay_decorator(say_greeting)  # Here it adds delay to say_greeting since that is the func passed.
+decorator_func()
