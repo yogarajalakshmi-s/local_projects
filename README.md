@@ -76,3 +76,6 @@ master branch - Basics of turtle ggraphics, pandas, webscraping, api calls, send
 **Branch-20: Creating private spotify playlist** - https://github.com/yoga-0731/local_projects/tree/spotify-playlist
   - Created a private Spotify playlist by scraping data from billboard.
   - The date will be given as input and the top 100 songs from that date will be created as a private playlist in our Spotify account
+
+**Branch-21: Morse code generator** - https://github.com/yoga-0731/local_projects/tree/morse-code-generator
+  - Take input as string and convert it to Morse code
