@@ -79,3 +79,6 @@ master branch - Basics of turtle ggraphics, pandas, webscraping, api calls, send
 
 **Branch-21: [Morse code generator](https://github.com/yoga-0731/local_projects/tree/morse-code-generator)**
   - Take input as string and convert it to Morse code
+
+**Branch-22: [Tic-Tac-Toe](https://github.com/yoga-0731/local_projects/tree/tic-tac-toe)**
+  - Tic-Tac-Toe game
