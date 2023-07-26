@@ -1,7 +1,8 @@
 # local_projects
 
-Exciting and fun projects on Python along with TurtleGraphics, Pandas, Web scraping, APIs.   
-master branch - Basics of turtle ggraphics, pandas, webscraping, api calls, sending sms and mail. (Projects on the branches).
+Exciting and fun projects on Python along with TurtleGraphics, Pandas, Web scraping, APIs.  
+**Number of projects in this repo: 22**  
+master branch - Basics of turtle graphics, pandas, webscraping, api calls, sending sms and mail. (Projects on the branches).
 
 **Branch-1: [Quiz game](https://github.com/yoga-0731/local_projects/tree/quiz-oop)**
   - Have a defined set of questions and answers.
@@ -63,7 +64,7 @@ master branch - Basics of turtle ggraphics, pandas, webscraping, api calls, send
 
 **Branch-17: [Stock price alert](https://github.com/yoga-0731/local_projects/tree/stock-news-alert)**
   - A stock is chosen (TSLA). The Stock and News data are taken by hitting APIs.
-  - A useful stock price alert app, which sends Close price diff between yesterday and day before yesterday and sends the top 3 news of that stock thourgh sms.
+  - A useful stock price alert app, which sends Close price diff between yesterday and day before yesterday and sends the top 3 news of that stock through sms.
 
 **Branch-18: [Habit tracker app](https://github.com/yoga-0731/local_projects/tree/habit-tracker)**
   - A very useful habit tracking app on Book reading.
