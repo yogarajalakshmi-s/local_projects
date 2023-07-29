@@ -1,7 +1,7 @@
 # local_projects
 
 Exciting and fun projects on Python along with TurtleGraphics, Pandas, Web scraping, APIs.  
-**Ignore master branch** - master branch contains basics of turtle graphics, pandas, webscraping, api calls, sending sms and mail.  
+master branch contains basics of turtle graphics, pandas, webscraping, api calls, sending sms and mail.  
 **Number of projects in this repo: 22**  
 
 **Branch-1: [Quiz game](https://github.com/yoga-0731/local_projects/tree/quiz-oop)**
