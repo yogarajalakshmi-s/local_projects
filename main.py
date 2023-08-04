@@ -29,3 +29,13 @@ while len(correct_guesses) < 50:
         new_state.penup()
         new_state.goto(int(guessed_state_data.x), int(guessed_state_data.y))
         new_state.write(state_guess, True, align='center')
+         # (or)
+        # new_state.write(guessed_state_data.state.item()) #-> picks the first element from the series instead
+        # of returning the object
+
+# turtle.mainloop()  # Keeping the screen open
+
+# Getting co-ordinates, but since we have the co-ordinates in the csv data, we don't need this now
+# def get_mouse_click_coor(x, y):
+#     print(x, y)
+# turtle.onscreenclick(get_mouse_click_coor)
