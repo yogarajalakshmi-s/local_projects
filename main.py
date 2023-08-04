@@ -16,10 +16,7 @@ while len(correct_guesses) < 50:
     state_guess = screen.textinput(title=f"{len(correct_guesses)}/50 States Correct", prompt='Name a state').title()
 
     if state_guess == 'Exit':
-        states_to_learn = []
-        for state in us_states:
-            if state not in correct_guesses:
-                states_to_learn.append(state)
+        states_to_learn = [state for state in us_states if state not in correct_guesses]
         states_list = pandas.DataFrame(states_to_learn)
         states_list.to_csv('states_to_learn.csv')
         break
@@ -32,13 +29,9 @@ while len(correct_guesses) < 50:
         new_state.penup()
         new_state.goto(int(guessed_state_data.x), int(guessed_state_data.y))
         new_state.write(state_guess, True, align='center')
-        # (or)
+         # (or)
         # new_state.write(guessed_state_data.state.item()) #-> picks the first element from the series instead
         # of returning the object
-
-
-
-
 
 # turtle.mainloop()  # Keeping the screen open
 
